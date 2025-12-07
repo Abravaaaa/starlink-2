@@ -49,14 +49,13 @@
             padding: 0 2rem;
         }
 
-
-        /* Empilhar os itens da comparação em telas pequenas */
-@media (max-width: 640px) {
+/* Empilhar os itens da comparação em telas menores que 1200px */
+@media (max-width: 1200px) {
     .mini-comparison {
-        grid-template-columns: 1fr; /* Apenas uma coluna */
+        grid-template-columns: 1fr !important; /* força 1 coluna */
         gap: 1.2rem;
     }
-    
+
     .comparison-item {
         padding: 1.5rem;
     }
