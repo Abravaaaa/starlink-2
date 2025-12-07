@@ -836,7 +836,7 @@
             </div>
         </nav>
         <div class="promo-banner-countdown" id="promo-banner">
-            <p>🔥 PROMOÇÃO RELÂMPAGO: **30% DE DESCONTO NO KIT**! A OFERTA TERMINA EM <span id="countdown-timer">00:13:00</span></p>
+            <p>🔥 PROMOÇÃO RELÂMPAGO: <strong>30% DE DESCONTO NO KIT</strong>! A OFERTA TERMINA EM <span id="countdown-timer">00:13:00</span></p>
             <button id="close-promo-btn" title="Fechar">×</button>
         </div>
     </header>
@@ -903,40 +903,40 @@
                     <div class="plan-card is-open" id="plan-residencial">
                         <h3>Starlink Residencial</h3>
                         <p class="price">R$ 184<span class="price-period"> /mês</span></p>
-                        <p class="price-period">Kit Inicial: **R$ 1.900** (após desconto)</p>
+                        <p class="price-period">Kit Inicial: <strong>R$ 1.900</strong> (após desconto)</p>
                         
                         <div class="toggle-details">Ver menos <span class="arrow"></span></div>
                         <ul class="plan-details">
-                            <li>**Velocidade Média:** 150-250 Mbps de download.</li>
-                            <li>**Latência:** Baixa (20-40ms), ideal para jogos e chamadas de vídeo.</li>
-                            <li>**Cobertura:** Para seu endereço fixo (casa, fazenda, sítio).</li>
-                            <li>**Ideal para:** Família, home office, streaming 4K em múltiplos dispositivos.</li>
+                            <li><strong>Velocidade Média:</strong> 150-250 Mbps de download.</li>
+                            <li><strong>Latência:</strong> Baixa (20-40ms), ideal para jogos e chamadas de vídeo.</li>
+                            <li><strong>Cobertura:</strong> Para seu endereço fixo (casa, fazenda, sítio).</li>
+                            <li><strong>Ideal para:</strong> Família, home office, streaming 4K em múltiplos dispositivos.</li>
                         </ul>
                         <a href="https://wa.me/5511969522814?text=Olá!%20Tenho%20interesse%20no%20Plano%20Residencial%20da%20Starlink." class="btn btn-secondary" target="_blank">Falar com Consultor</a>
                     </div>
                     <div class="plan-card highlight" id="plan-roam">
                         <h3>Starlink Roaming (Móvel)</h3>
                         <p class="price">R$ 280<span class="price-period"> /mês</span></p>
-                        <p class="price-period">Kit Inicial: **R$ 1.900** (após desconto)</p>
+                        <p class="price-period">Kit Inicial: <strong>R$ 1.900</strong> (após desconto)</p>
                         <div class="toggle-details">Ver detalhes <span class="arrow"></span></div>
                         <ul class="plan-details">
-                            <li>**Velocidade Média:** 100-200 Mbps de download.</li>
-                            <li>**Latência:** 25-50ms (ótima para uso móvel).</li>
-                            <li>**Cobertura:** Em qualquer lugar do Brasil, podendo pausar o serviço a qualquer momento.</li>
-                            <li>**Ideal para:** Motorhomes, nômades digitais, viagens longas, canteiros de obra temporários.</li>
+                            <li><strong>Velocidade Média:</strong> 100-200 Mbps de download.</li>
+                            <li><strong>Latência:</strong> 25-50ms (ótima para uso móvel).</li>
+                            <li><strong>Cobertura:</strong> Em qualquer lugar do Brasil, podendo pausar o serviço a qualquer momento.</li>
+                            <li><strong>Ideal para:</strong> Motorhomes, nômades digitais, viagens longas, canteiros de obra temporários.</li>
                         </ul>
                         <a href="https://wa.me/5511969522814?text=Olá!%20Tenho%20interesse%20no%20Plano%20Roam%20(Viagem)%20da%20Starlink." class="btn btn-primary" target="_blank">Aproveitar Melhor Plano</a>
                     </div>
                     <div class="plan-card" id="plan-maritimo">
                         <h3>Starlink Marítimo</h3>
                         <p class="price">R$ 1.283<span class="price-period"> /mês</span></p>
-                        <p class="price-period">Kit de Alta Performance: **R$ 12.500**</p>
+                        <p class="price-period">Kit de Alta Performance: <strong>R$ 12.500</strong></p>
                          <div class="toggle-details">Ver detalhes <span class="arrow"></span></div>
                          <ul class="plan-details">
-                            <li>**Velocidade Média:** 200-350 Mbps de download (Priorizada).</li>
-                            <li>**Latência:** 20-40ms.</li>
-                            <li>**Cobertura:** Conexão estável e rápida em alto mar, rios e grandes lagos.</li>
-                            <li>**Ideal para:** Iates, navios de carga, plataformas, uso corporativo em água.</li>
+                            <li><strong>Velocidade Média:</strong> 200-350 Mbps de download (Priorizada).</li>
+                            <li><strong>Latência:</strong> 20-40ms.</li>
+                            <li><strong>Cobertura:</strong> Conexão estável e rápida em alto mar, rios e grandes lagos.</li>
+                            <li><strong>Ideal para:</strong> Iates, navios de carga, plataformas, uso corporativo em água.</li>
                         </ul>
                         <a href="https://wa.me/5511969522814?text=Olá!%20Tenho%20interesse%20no%20Plano%20Marítimo%20da%20Starlink." class="btn btn-secondary" target="_blank">Solicitar Cotação</a>
                     </div>
@@ -1224,7 +1224,10 @@
             });
             
             // Corrige a altura inicial do FAQ aberto por padrão
-            document.querySelector('.faq-item.open .faq-answer').style.maxHeight = document.querySelector('.faq-item.open .faq-answer').scrollHeight + "px";
+            const openedFaq = document.querySelector('.faq-item.open .faq-answer');
+            if (openedFaq) {
+                openedFaq.style.maxHeight = openedFaq.scrollHeight + "px";
+            }
 
 
             // --- 5. VALIDAÇÃO E MÁSCARA DE CEP ---
@@ -1239,24 +1242,27 @@
                  
                  if (value.length > 5) {
                     value = value.replace(/^(\d{5})(\d{1,3})$/, '$1-$2');
-                 } else if (value.length > 5) {
-                    value = value.replace(/^(\d{5})/, '$1-');
                  }
                  
                  e.target.value = value;
             });
 
             // Validação ao tentar submeter
+            // Pega as cores do CSS
+            const rootStyles = getComputedStyle(document.documentElement);
+            const colorError = rootStyles.getPropertyValue('--color-error').trim();
+            const colorBorder = rootStyles.getPropertyValue('--color-border').trim();
+
             cepForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 const cep = cepInput.value.replace(/\D/g, '');
                 
                 if (cep.length !== 8) {
                     cepErrorMessage.style.display = 'block';
-                    cepInput.style.borderColor = var(--color-error);
+                    cepInput.style.borderColor = colorError;
                 } else {
                     cepErrorMessage.style.display = 'none';
-                    cepInput.style.borderColor = var(--color-border);
+                    cepInput.style.borderColor = colorBorder;
                     
                     // Ação de sucesso (Redirecionar para WhatsApp com o CEP)
                     const whatsappLink = `https://wa.me/5511969522814?text=Olá!%20Gostaria%20de%20verificar%20a%20disponibilidade%20da%20Starlink%20para%20o%20CEP%20${cepInput.value}.`;
