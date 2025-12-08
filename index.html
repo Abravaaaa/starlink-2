@@ -1477,5 +1477,112 @@
             });
         });
     </script>
+    <!-- BOTAO FLUTUANTE WHATSAPP -->
+<style>
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1500;
+    background: #25D366; 
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 0.9rem 1.8rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+}
+.floating-whatsapp-btn span.icon {
+    font-size: 1.2rem;
+}
+.floating-whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+    filter: brightness(1.05);
+}
+@media (max-width: 768px) {
+    .floating-whatsapp-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.75rem 1.4rem;
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+<a href="https://wa.me/5511999999999?text=Quero%20continuar%20meu%20atendimento%20sobre%20a%20Starlink"
+   class="floating-whatsapp-btn"
+   id="floating-whatsapp-btn"
+   target="_blank"
+   rel="noopener noreferrer">
+    <span class="icon">➡️</span>
+    <span>Continuar</span>
+</a>
+
+<script>
+// BOTÃO ARRASTÁVEL
+(function() {
+    const btn = document.getElementById('floating-whatsapp-btn');
+    if (!btn) return;
+
+    let isDragging = false;
+    let startX, startY, initialLeft, initialTop;
+
+    function getTouchOrMouse(e) {
+        return e.touches ? e.touches[0] : e;
+    }
+
+    function onStart(e) {
+        const ev = getTouchOrMouse(e);
+        isDragging = true;
+        btn.style.transition = 'none';
+
+        const rect = btn.getBoundingClientRect();
+        initialLeft = rect.left;
+        initialTop = rect.top;
+
+        startX = ev.clientX;
+        startY = ev.clientY;
+
+        e.preventDefault();
+    }
+
+    function onMove(e) {
+        if (!isDragging) return;
+        const ev = getTouchOrMouse(e);
+
+        const deltaX = ev.clientX - startX;
+        const deltaY = ev.clientY - startY;
+
+        btn.style.left = (initialLeft + deltaX) + 'px';
+        btn.style.top  = (initialTop + deltaY) + 'px';
+        btn.style.right = 'auto';
+        btn.style.bottom = 'auto';
+    }
+
+    function onEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        btn.style.transition = '';
+    }
+
+    btn.addEventListener('mousedown', onStart);
+    btn.addEventListener('touchstart', onStart);
+
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove);
+
+    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('touchend', onEnd);
+})();
+</script>
+
 </body>
 </html>
