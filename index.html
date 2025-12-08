@@ -49,19 +49,18 @@
             padding: 0 2rem;
         }
 
-/* Empilhar os itens da comparação em telas menores que 1200px */
-@media (max-width: 1200px) {
-    .mini-comparison {
-        grid-template-columns: 1fr !important; /* força 1 coluna */
-        gap: 1.2rem;
-    }
+        /* Empilhar os itens da comparação em telas menores que 1200px */
+        @media (max-width: 1200px) {
+            .mini-comparison {
+                grid-template-columns: 1fr !important; /* força 1 coluna */
+                gap: 1.2rem;
+            }
 
-    .comparison-item {
-        padding: 1.5rem;
-    }
-}
+            .comparison-item {
+                padding: 1.5rem;
+            }
+        }
 
-        
         .section {
             padding: 6rem 0;
             border-bottom: 1px solid var(--color-border);
@@ -283,23 +282,34 @@
         }
 
         /* --- HERO SECTION --- */
-   .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh;
-    padding-top: 5rem;     /* empurra o conteúdo pra baixo */
-    padding-bottom: 4rem;  /* dá respiro embaixo também    */
-    background-image: linear-gradient(rgba(10, 10, 15, 0.85), rgba(10, 10, 15, 1)), url('https://www.starlink.com/assets/images/background_image_mini.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+            background-image: url('img/starlink-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-        
+        /* camada escura pra deixar o texto legível */
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
         .hero-content {
+            position: relative;
+            z-index: 1;
             max-width: 900px;
+            color: #ffffff;
         }
 
         .hero h1 {
@@ -828,34 +838,6 @@
             }
         }
     </style>
-    .hero {
-  background-image: url('img/starlink-bg.png'); /* caminho da imagem */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 90vh; /* altura da dobra */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  padding: 40px 20px;
-}
-
-/* camada escura pra deixar o texto legível */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* ajuste se quiser mais claro ou mais escuro */
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: white;
-}
-
 </head>
 <body class="hero-offset" id="body-main">
 
@@ -885,6 +867,7 @@
             <button id="close-promo-btn" title="Fechar">×</button>
         </div>
     </header>   
+
     <main>
         <section class="hero" id="home">
             <div class="hero-content">
@@ -958,33 +941,34 @@
                         </ul>
                         <a href="https://wa.me/5511969522814?text=Olá!%20Tenho%20interesse%20no%20Plano%20Residencial%20da%20Starlink." class="btn btn-secondary" target="_blank">Falar com Consultor</a>
                     </div>
+
                     <div class="plan-card highlight" id="plan-roam">
-    <h3>Starlink Roaming (Móvel) — Para quem a vida não para.</h3>
-    <p class="price">R$ 280<span class="price-period"> /mês</span></p>
-    <p class="price-period">Kit Inicial: <strong>R$ 1.900</strong> (após desconto)</p>
+                        <h3>Starlink Roaming (Móvel) — Para quem a vida não para.</h3>
+                        <p class="price">R$ 280<span class="price-period"> /mês</span></p>
+                        <p class="price-period">Kit Inicial: <strong>R$ 1.900</strong> (após desconto)</p>
 
-    <div class="toggle-details">Ver detalhes <span class="arrow"></span></div>
-    <ul class="plan-details">
-        <li><strong>Velocidade Média:</strong> 100-200 Mbps em qualquer rota.</li>
-        <li><strong>Ideal na Estrada:</strong> Mantenha contato com clientes, família e operações enquanto viaja.</li>
-        <li><strong>Produtividade em Movimento:</strong> Videoconferências, GPS online, YouTube, Netflix e trabalho remoto.</li>
-        <li><strong>Pausa quando quiser:</strong> Não usou? Pause o serviço. Volte quando precisar.</li>
-        <li><strong>Planejado para:</strong> Caminhoneiros, profissionais de obra, eventos, motorhomes, sítios e vida rural.</li>
-    </ul>
+                        <div class="toggle-details">Ver detalhes <span class="arrow"></span></div>
+                        <ul class="plan-details">
+                            <li><strong>Velocidade Média:</strong> 100-200 Mbps em qualquer rota.</li>
+                            <li><strong>Ideal na Estrada:</strong> Mantenha contato com clientes, família e operações enquanto viaja.</li>
+                            <li><strong>Produtividade em Movimento:</strong> Videoconferências, GPS online, YouTube, Netflix e trabalho remoto.</li>
+                            <li><strong>Pausa quando quiser:</strong> Não usou? Pause o serviço. Volte quando precisar.</li>
+                            <li><strong>Planejado para:</strong> Caminhoneiros, profissionais de obra, eventos, motorhomes, sítios e vida rural.</li>
+                        </ul>
 
-    <a href="https://wa.me/5511969522814?text=Quero%20informações%20sobre%20a%20Starlink%20Móvel%20Roaming%20para%20viagem%20ou%20caminhão." 
-       class="btn btn-primary" 
-       target="_blank">
-        Melhor Plano Para Quem Viaja 🚀
-    </a>
-</div>
+                        <a href="https://wa.me/5511969522814?text=Quero%20informações%20sobre%20a%20Starlink%20Móvel%20Roaming%20para%20viagem%20ou%20caminhão." 
+                        class="btn btn-primary" 
+                        target="_blank">
+                            Melhor Plano Para Quem Viaja 🚀
+                        </a>
+                    </div>
 
                     <div class="plan-card" id="plan-maritimo">
                         <h3>Starlink Marítimo</h3>
                         <p class="price">R$ 1.283<span class="price-period"> /mês</span></p>
                         <p class="price-period">Kit de Alta Performance: <strong>R$ 12.500</strong></p>
-                         <div class="toggle-details">Ver detalhes <span class="arrow"></span></div>
-                         <ul class="plan-details">
+                        <div class="toggle-details">Ver detalhes <span class="arrow"></span></div>
+                        <ul class="plan-details">
                             <li><strong>Velocidade Média:</strong> 200-350 Mbps de download (Priorizada).</li>
                             <li><strong>Latência:</strong> 20-40ms.</li>
                             <li><strong>Cobertura:</strong> Conexão estável e rápida em alto mar, rios e grandes lagos.</li>
@@ -1152,32 +1136,35 @@
                 <h2 class="section-title">Mais de 10.000 Clientes Satisfeitos no Brasil</h2>
                 <p class="section-subtitle">A internet que transformou a vida de quem precisava de conexão onde ninguém mais chegava. Veja o que dizem nossos clientes:</p>
                 <div class="testimonials-v2-grid">
+                    <!-- Carlos -->
                     <div class="testimonial-v2-card">
-    <div class="testimonial-v2-header">
-        <img src="https://placehold.co/120x120/8AB6D6/1E2A33?text=CG" alt="Foto de Carlos Gomes" loading="lazy">
-        <div class="testimonial-v2-author">
-            <div class="name">Carlos Gomes (Caminhoneiro)</div>
-            <div class="location">BR-163 – Mato Grosso</div>
-        </div>
-        <div class="testimonial-v2-card">
-    <div class="testimonial-v2-header">
-        <img src="https://placehold.co/120x120/C5D6B1/374126?text=AS" alt="Foto de Antônio da Silva" loading="lazy">
-        <div class="testimonial-v2-author">
-            <div class="name">Antônio da Silva (Sítio e Criação)</div>
-            <div class="location">Interior de Goiás</div>
-        </div>
-    </div>
-    <blockquote>
-        Aqui nunca chegou fibra e 4G só pegava na porteira. Com a Starlink, vendo gado por vídeo, acompanho mercado e faço reunião online. Minha família usa streaming o dia inteiro. Não é luxo — é necessidade pra quem vive do campo.
-    </blockquote>
-</div>
+                        <div class="testimonial-v2-header">
+                            <img src="https://placehold.co/120x120/8AB6D6/1E2A33?text=CG" alt="Foto de Carlos Gomes" loading="lazy">
+                            <div class="testimonial-v2-author">
+                                <div class="name">Carlos Gomes (Caminhoneiro)</div>
+                                <div class="location">BR-163 – Mato Grosso</div>
+                            </div>
+                        </div>
+                        <blockquote>
+                            Trabalho viajando o Brasil inteiro. Antes eu só tinha sinal parado em posto. Agora, mesmo no meio do nada, faço chamada de vídeo com meus filhos, assisto séries na cabine e recebo carga por WhatsApp. O Roaming vale cada centavo. Mudou a estrada.
+                        </blockquote>
+                    </div>
 
-    </div>
-    <blockquote>
-        Trabalho viajando o Brasil inteiro. Antes eu só tinha sinal parado em posto. Agora, mesmo no meio do nada, faço chamada de vídeo com meus filhos, assisto séries na cabine e recebo carga por WhatsApp. O Roaming vale cada centavo. Mudou a estrada.
-    </blockquote>
-</div>
+                    <!-- Antônio -->
+                    <div class="testimonial-v2-card">
+                        <div class="testimonial-v2-header">
+                            <img src="https://placehold.co/120x120/C5D6B1/374126?text=AS" alt="Foto de Antônio da Silva" loading="lazy">
+                            <div class="testimonial-v2-author">
+                                <div class="name">Antônio da Silva (Sítio e Criação)</div>
+                                <div class="location">Interior de Goiás</div>
+                            </div>
+                        </div>
+                        <blockquote>
+                            Aqui nunca chegou fibra e 4G só pegava na porteira. Com a Starlink, vendo gado por vídeo, acompanho mercado e faço reunião online. Minha família usa streaming o dia inteiro. Não é luxo — é necessidade pra quem vive do campo.
+                        </blockquote>
+                    </div>
 
+                    <!-- Ricardo -->
                     <div class="testimonial-v2-card">
                         <div class="testimonial-v2-header">
                             <img src="https://placehold.co/120x120/E2D0C7/4C3B34?text=RS" alt="Foto de Ricardo Santos" loading="lazy">
@@ -1186,8 +1173,12 @@
                                 <div class="location">Corumbá, MS</div>
                             </div>
                         </div>
-                        <blockquote>Chegou em 4 dias aqui no Pantanal! Achei que seria complicado, mas eu mesmo instalei em 15 minutos. A velocidade é um absurdo de boa, minha família toda usa pra estudar e assistir filmes. Superou muito a expectativa!</blockquote>
+                        <blockquote>
+                            Chegou em 4 dias aqui no Pantanal! Achei que seria complicado, mas eu mesmo instalei em 15 minutos. A velocidade é um absurdo de boa, minha família toda usa pra estudar e assistir filmes. Superou muito a expectativa!
+                        </blockquote>
                     </div>
+
+                    <!-- Mariana -->
                     <div class="testimonial-v2-card">
                         <div class="testimonial-v2-header">
                             <img src="https://placehold.co/120x120/B8B8B8/3D3D3D?text=MF" alt="Foto de Mariana Ferreira" loading="lazy">
@@ -1196,8 +1187,12 @@
                                 <div class="location">Ubatuba, SP</div>
                             </div>
                         </div>
-                        <blockquote>Trabalho com design e precisava de uma internet que não me deixasse na mão. Envio arquivos pesados em segundos e faço reuniões sem uma única falha. Valeu cada centavo, a liberdade de trabalhar da praia não tem preço.</blockquote>
+                        <blockquote>
+                            Trabalho com design e precisava de uma internet que não me deixasse na mão. Envio arquivos pesados em segundos e faço reuniões sem uma única falha. Valeu cada centavo, a liberdade de trabalhar da praia não tem preço.
+                        </blockquote>
                     </div>
+
+                    <!-- João -->
                     <div class="testimonial-v2-card">
                         <div class="testimonial-v2-header">
                             <img src="https://placehold.co/120x120/FFC857/4C3B34?text=JP" alt="Foto de João Pereira" loading="lazy">
@@ -1206,7 +1201,9 @@
                                 <div class="location">Santarém, PA</div>
                             </div>
                         </div>
-                        <blockquote>Uso no meu barco no Rio Tapajós. Além de me dar segurança, consigo gerenciar minha pousada à distância. A entrega foi super rápida e o suporte pelo zap me ajudou a escolher o melhor plano. É outro nível de conexão.</blockquote>
+                        <blockquote>
+                            Uso no meu barco no Rio Tapajós. Além de me dar segurança, consigo gerenciar minha pousada à distância. A entrega foi super rápida e o suporte pelo zap me ajudou a escolher o melhor plano. É outro nível de conexão.
+                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -1395,7 +1392,6 @@
 
                     // Garante que o max-height seja dinâmico ao abrir
                     if (card.classList.contains('is-open')) {
-                        // Define um valor grande o suficiente para a transição
                         details.style.maxHeight = details.scrollHeight + "px";
                     } else {
                         details.style.maxHeight = "0";
